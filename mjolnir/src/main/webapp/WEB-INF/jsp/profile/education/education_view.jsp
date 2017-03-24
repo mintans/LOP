@@ -28,8 +28,8 @@
                     </c:if>
                 </c:forEach>
             </nav>
-
-            <div class="row">
+            
+               <div class="row">
                 <div class="col-md-2">
                     <div class="panel panel-default">
                         <div class="panel-body">
@@ -37,6 +37,8 @@
                         </div>
                     </div>
                 </div>
+
+          
                 <div class="col-md-10">
                     <div class="panel panel-primary">
                         <div class="panel-heading col-md-12">

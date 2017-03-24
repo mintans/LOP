@@ -27,34 +27,13 @@
             <div class="row">
                 <%@ include file="/WEB-INF/jsp/header.jsp" %>               
             </div>
-            <nav class="breadcrumb">
-                <a class="breadcrumb-item" href="<c:url value="/"/>main/structure">Structure</a> / 
-                <span class="breadcrumb-item active">Team</span>
-            </nav>
-                
-                
+            
 
-            <div class="container" style="width: 100%">
+            <div class="container">
                 <div class="row">
-                    <div class="col-md-2">
-                        <div class="panel panel-default">
-                            <!--<div class="panel-heading"></div>-->
-                            <div class="panel-body">
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li role="presentation"><a href="<c:url value="/"/>main/structure">Overview</a></li>
-                                    <li role="presentation"><a href="<c:url value="/"/>main/group">Groups</a></li>
-                                    <li role="presentation" class="active"><a href="/Mjolnir/main/team">Team</a></li>
-                                    
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                                <div class="col-md-10">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">Teams</h4>
-                            </div>
-                            <div class="panel-body">
+                    <div class="panel panel-default">
+                        <!--<div class="panel-heading"></div>-->
+                        <div class="panel-body">
                             <div class="row">
                                 
                             </div>
@@ -63,7 +42,7 @@
                             </div>
                             <br>
                             <c:if test="${empty teamList}">
-                                <h2><p align="center">Empty</h2>
+                                <p align="center">empty</p>
                             </c:if>
                             
                             <table class="table table-bordered" cellspacing="0" id="myTable">
@@ -95,13 +74,12 @@
                                 </c:forEach>
                             </table>
                                             
-                            </div>
                         </div>
-                                </div>
+                    </div>
                 </div>
             </div>
             <br><br>
-        
+            
             <script>
                  var en = "";
                 function hide(obj) {
@@ -114,20 +92,13 @@
                         en = el;
                 }
             </script>
-            
-                <div class="col-md-2">
-                </div>
-                    
-                         <!-- <div class="container" style="width: 100%"> -->
             <c:forEach var="teamItem2" items="${teamList}">
-                    <div class="container panel-collapse collapse" id="${teamItem2.id}" style="width: 100%">
+                    <div class="container panel-collapse collapse" id="${teamItem2.id}">
                     <div class="row">
-                        <div class="col-md-10">
-                        <div class="panel panel-primary">
+                        <div class="panel panel-default">
                             <div class="panel-heading">
                                 
                             </div>
-                            
                             <div class="panel-body">
                                 <div align="right">
                                     <a href="<c:url value="/"/>main/team/addLeader?tId=${teamItem2.id}" class="btn btn-primary">add leader</a>                                
@@ -200,20 +171,12 @@
                                     </tbody>
                                     </c:forEach>
                                 </table>
-                            </div>
+
                             </div>
                         </div>
-                        </div>
-                   
-                        
+                    </div>
                 </div>
-                </c:forEach>  
-                    
-                
-                     
-                
-            </div>
-        
-        
+                </c:forEach>
+            
     </body>
 </html>

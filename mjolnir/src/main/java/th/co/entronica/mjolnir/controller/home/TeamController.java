@@ -63,8 +63,8 @@ public class TeamController {
     public String Show(ModelMap model, @RequestParam(value="tId", required = false)String tId) {
         List<Team> teamList = teamManager.getAll();
         model.addAttribute("userInfo", userInfo);
-        model.put("formStructure", "structure");
         model.put("tId", tId);
+        model.put("formhome", "home");
         model.put("teamList", teamList);
         List<Leader> leaderList = leaderManager.getAll();
         model.put("leaderList", leaderList);

@@ -225,8 +225,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <c:forEach var="familyItem2" items="${familyItem.familyinfo.brethrenInfo}">
-                                    <c:if test="${familyItem2.name != null}">        
                                     <div class="row col-md-offset-2">
                                         <div class="form-group col-md-9">
                                             <div style="height:224px;overflow:auto;">
@@ -254,8 +252,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                   </c:if>
-                                 </c:forEach>
                                 </form>
                             </div>
                         </div>

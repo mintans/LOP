@@ -15,7 +15,6 @@
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
        http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd">
 
-    <context:component-scan base-package="th.co.entronica.mjolnir"/>
     <context:component-scan base-package="th.co.entronica.mjolnir.controller"/>
     <context:component-scan base-package="th.co.entronica.mjolnir.session" />
     <context:component-scan base-package="th.co.entronica.mjolnir.model.reposity" />

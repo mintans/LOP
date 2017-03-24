@@ -139,79 +139,79 @@
                             <li class="active"><a href="<c:url value="/main/position"/>">Position</a></li>
                             </c:if>
                         </c:if>
-                        <c:if test="${userInfo.user.permission == 'MANAGER'}">
+                         <c:if test="${userInfo.user.permission == 'MANAGER'}">
                             <c:if test="${formhome == 'home'}">
+                            <li class="nav-main"><a href="<c:url value="/main/notice"/>">Notice</a></li>
                             <li class="nav-main"><a href="<c:url value="/main/information/view/${userInfo.user.id}"/>">Profile</a></li>
-                            <li class="nav-main"><a href="<c:url value="/main/leave"/>">Leave</a></li>
-                            <li class="nav-main"><a href="<c:url value="/main/payment"/>">Payment</a></li>
-                            
-                            <li class="nav-main"><a href="<c:url value="/main/structure"/>">Structure</a></li>
+                            <li class="nav-main"><a href="<c:url value="/main/leave"/>">Supplement</a></li>
+                            <li class="nav-main"><a href="#">Structure</a></li>
                             <li class="nav-main"><a href="<c:url value="/main/document"/>">Document</a></li>
                             </c:if>
+                             <c:if test="${formNotice == 'notice'}">
+                            <li class="active"><a href="<c:url value="/main/notice"/>">Notice</a></li>
+                            <li><a href="<c:url value="/main/information/view/${userInfo.user.id}"/>">Profile</a></li>
+                            <li><a href="<c:url value="/main/leave"/>">Supplement</a></li>
+                            <li><a href="#">Structure</a></li>
+                            <li><a href="<c:url value="/main/document"/>">Document</a></li>
+                            </c:if>
                             <c:if test="${formProfile == 'profile'}">
+                            <li><a href="<c:url value="/main/notice"/>">Notice</a></li>
                             <li class="active"><a href="<c:url value="/main/information/view/${userInfo.user.id}"/>">Profile</a></li>
-                            <li><a href="<c:url value="/main/leave"/>">Leave</a></li>
-                            <li><a href="<c:url value="/main/payment"/>">Payment</a></li>
-                            
-                            <li><a href="<c:url value="/main/structure"/>">Structure</a></li>
+                            <li><a href="<c:url value="/main/leave"/>">Supplement</a></li>
+                            <li><a href="#">Structure</a></li>
                             <li><a href="<c:url value="/main/document"/>">Document</a></li>
                             </c:if>                        
                             <c:if test="${formLeave == 'leave'}">
-                            <li><a href="<c:url value="/main/information/view/${userInfo.user.id}"/>">Profile</a></li>
-                            <li class="active"><a href="<c:url value="/main/leave"/>">Leave</a></li>
-                            <li><a href="<c:url value="/main/payment"/>">Payment</a></li>
-                            
-                            <li><a href="<c:url value="/main/structure"/>">Structure</a></li>
-                            <li><a href="<c:url value="/main/document"/>">Document</a></li>
-                            </c:if>
-                            <c:if test="${formPayment == 'payment'}">
-                            <li><a href="<c:url value="/main/information/view/${userInfo.user.id}"/>">Profile</a></li>
-                            <li><a href="<c:url value="/main/leave"/>">Leave</a></li>
-                            <li class="active"><a href="<c:url value="/main/payment"/>">Payment</a></li>
-                            
-                            <li><a href="<c:url value="/main/structure"/>">Structure</a></li>
-                            <li><a href="<c:url value="/main/document"/>">Document</a></li>
-                            </c:if>
-                            
-                            <c:if test="${formStructure == 'structure'}">
-                            <li><a href="<c:url value="/main/information/view/${userInfo.user.id}"/>">Profile</a></li>
-                            <li><a href="<c:url value="/main/leave"/>">Leave</a></li>
-                            <li><a href="<c:url value="/main/payment"/>">Payment</a></li>
-                            
-                            <li class="active"><a href="<c:url value="/main/structure"/>">Structure</a></li>
+                             <li><a href="<c:url value="/main/notice"/>">Notice</a></li>
+                            <li><a href="<c:url value="/main/information/view/${userInfo.user.id}"/>">Profile</a></li>                            
+                            <li class="active"><a href="<c:url value="/main/leave"/>">Supplement</a></li>
+                            <li><a href="#">Structure</a></li>
                             <li><a href="<c:url value="/main/document"/>">Document</a></li>
                             </c:if>
                             <c:if test="${formDocument == 'document'}">
+                            <li><a href="<c:url value="/main/notice"/>">Notice</a></li>
                             <li><a href="<c:url value="/main/information/view/${userInfo.user.id}"/>">Profile</a></li>
-                            <li><a href="<c:url value="/main/leave"/>">Leave</a></li>
-                            <li><a href="<c:url value="/main/payment"/>">Payment</a></li>
-                            
-                            <li><a href="<c:url value="/main/structure"/>">Structure</a></li>
+                            <li><a href="<c:url value="/main/leave"/>">Supplement</a></li>
+                            <li><a href="#">Structure</a></li>
                             <li class="active"><a href="<c:url value="/main/document"/>">Document</a></li>
+                            </c:if>
+                             <c:if test="${formPayment == 'payment'}">
+                              <li><a href="<c:url value="/main/notice"/>">Notice</a></li>
+                            <li><a href="<c:url value="/main/information/view/${userInfo.user.id}"/>">Profile</a></li>
+                            <li class="active"><a href="<c:url value="/main/leave"/>">Supplement</a></li>
+                            <li><a href="#">Structure</a></li>
+                            <li><a href="<c:url value="/main/document"/>">Document</a></li>
                             </c:if>
 
                     </c:if>
                     <c:if test="${userInfo.user.permission == 'EMPLOYEE'}">
                         <c:if test="${formhome == 'home'}">
-                            <li class="nav-main"><a href="#">Notice</a></li>
+                            <li class="nav-main"><a href="<c:url value="/main/notice"/>">Notice</a></li>
                             <li class="nav-main"><a href="<c:url value="/main/information/view/${userInfo.user.id}"/>">Profile</a></li>                            
                             <li class="nav-main"><a href="<c:url value="/main/overtime"/>">Supplement</a></li>
                             <li class="nav-main"><a href="<c:url value="/main/document"/>">Document</a></li>
                             </c:if>
+                            <c:if test="${formNotice == 'notice'}">
+                            <li class="active"><a href="<c:url value="/main/notice"/>">Notice</a></li>
+                            <li><a href="<c:url value="/main/information/view/${userInfo.user.id}"/>">Profile</a></li>                            
+                            <li><a href="<c:url value="/main/overtime"/>">Supplement</a></li>
+                            <li><a href="<c:url value="/main/document"/>">Document</a></li>
+                            </c:if>
                             <c:if test="${formProfile == 'profile'}">
-                            <li><a href="#">Notice</a></li>
+                            <li><a href="<c:url value="/main/notice"/>">Notice</a></li>
                             <li class="active"><a href="<c:url value="/main/information/view/${userInfo.user.id}"/>">Profile</a></li>                            
                             <li><a href="<c:url value="/main/overtime"/>">Supplement</a></li>
                             <li><a href="<c:url value="/main/document"/>">Document</a></li>
                             </c:if>
                             <c:if test="${formOverTime == 'overtime' || formLeave == 'leave' || formPayment == 'payment'}">
-                            <li><a href="#">Notice</a></li>
+                             <li class="active"><a href="<c:url value="/main/notice"/>">Notice</a></li>
                             <li><a href="<c:url value="/main/information/view/${userInfo.user.id}"/>">Profile</a></li>                            
                             <li class="active"><a href="<c:url value="/main/overtime"/>">Supplement</a></li>
                             <li><a href="<c:url value="/main/document"/>">Document</a></li>
-                            </c:if>                           
+                            </c:if>
+                                                      
                             <c:if test="${formDocument == 'document'}">
-                             <li><a href="#">Notice</a></li>
+                             <li><a href="<c:url value="/main/notice"/>">Notice</a></li>
                             <li><a href="<c:url value="/main/information/view/${userInfo.user.id}"/>">Profile</a></li>                           
                             <li><a href="<c:url value="/main/overtime"/>">Supplement</a></li>
                             <li class="active"><a href="<c:url value="/main/document"/>">Document</a></li>
