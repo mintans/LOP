@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" 
+       xmlns:p="http://www.springframework.org/schema/p"      
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"     
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd 
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+       http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd">
+
+    <context:component-scan base-package="th.co.entronica.mjolnir"/>
+    <context:component-scan base-package="th.co.entronica.mjolnir.controller"/>
+    <context:component-scan base-package="th.co.entronica.mjolnir.session" />
+    <context:component-scan base-package="th.co.entronica.mjolnir.model.reposity" />
+    <context:component-scan base-package="th.co.entronica.mjolnir.model.service" />
+    <context:component-scan base-package="th.co.entronica.mjolnir.model.manager" />
+    <!--
+    Config view
+    -->
+    <!--    <bean id="viewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver" >
+        <property name="basename" value="view.mainViews" />
+    </bean>    -->
+   
+    <mvc:annotation-driven />
+    
+    <!--    Factory bean that creates the Mongo instance 
+    -->    
+    <bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean">
+        <property name="host" value="localhost" />
+        <property name="port" value="27017" />
+    </bean>
+   
+    <!--
+        MongoTemplate for connecting and quering the documents in the database 
+    -->    
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongo" ref="mongo" />
+        <constructor-arg name="databaseName" value="mjolnirDB" />
+    </bean>
+    
+    <mongo:repositories base-package="th.co.entronica.mjolnir.model.reposity" />
+    <!--
+        Mapping Converter for provide GridFs.
+    -->  
+    <mongo:db-factory id="mongoDbFactory" dbname="mjolnirDB" />
+    <mongo:mapping-converter id="converter" />
+    <!--
+        GridFsTemplate for connecting and quering the documents in the database 
+    -->    
+    <bean name="gridFsTemplate"
+          class="org.springframework.data.mongodb.gridfs.GridFsTemplate">
+        <constructor-arg ref="mongoDbFactory" />
+        <constructor-arg ref="converter" />
+    </bean>
+    
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+    
+    <bean id="userInfo" class="th.co.entronica.mjolnir.session.UserInfo" scope="session">     
+        <aop:scoped-proxy/>
+    </bean>
+    
+    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver"/>
+    <mvc:resources mapping="/uploads/**" location="/uploads/" />
+
+</beans>
