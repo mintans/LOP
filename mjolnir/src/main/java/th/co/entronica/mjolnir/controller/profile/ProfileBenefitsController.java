@@ -105,7 +105,7 @@ public class ProfileBenefitsController {
         if (ck == 1) {
             List<Benefits> benefitsList = benefitsManager.getAll();
             if (benefitsList != null) {
-                model.put("benefitsList", benefitsList);;
+                model.put("benefitsList", benefitsList);
             } else {
                 benefitsList = new ArrayList<>();
             }
