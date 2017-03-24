@@ -19,6 +19,7 @@ th\co\entronica\mjolnir\model\manage\PaymentManager.class
 th\co\entronica\mjolnir\model\reposity\ProfileBenefitsRepository.class
 th\co\entronica\mjolnir\model\form\EmploymentForm.class
 th\co\entronica\mjolnir\model\db\Documention.class
+th\co\entronica\mjolnir\controller\home\Structure.class
 th\co\entronica\mjolnir\controller\supplement\OverTimeController.class
 th\co\entronica\mjolnir\model\manage\ProfileBenefitsManager.class
 th\co\entronica\mjolnir\controller\profile\FamilyInfoController.class
@@ -170,6 +171,7 @@ th\co\entronica\mjolnir\model\reposity\PaymentRepository.class
 th\co\entronica\mjolnir\model\reposity\TrainingRepository.class
 th\co\entronica\mjolnir\controller\supplement\SupplementController.class
 th\co\entronica\mjolnir\model\service\AdmonitionService.class
+th\co\entronica\mjolnir\Test.class
 th\co\entronica\mjolnir\model\service\TeamService.class
 th\co\entronica\mjolnir\model\db\Profile.class
 th\co\entronica\mjolnir\model\form\LeaderForm.class

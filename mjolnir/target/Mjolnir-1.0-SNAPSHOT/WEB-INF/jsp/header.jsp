@@ -211,7 +211,7 @@
                             <li><a href="<c:url value="/main/document"/>">Document</a></li>
                             </c:if>
                             <c:if test="${formOverTime == 'overtime' || formLeave == 'leave' || formPayment == 'payment'}">
-                             <li class="active"><a href="<c:url value="/main/notice"/>">Notice</a></li>
+                            <li><a href="<c:url value="/main/notice"/>">Notice</a></li>
                             <li><a href="<c:url value="/main/information/view/${userInfo.user.id}"/>">Profile</a></li>                            
                             <li class="active"><a href="<c:url value="/main/overtime"/>">Supplement</a></li>
                             <li><a href="<c:url value="/main/document"/>">Document</a></li>
@@ -245,7 +245,7 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="changePasswordForm">Change Password</a></li>
+                                <li><a href="/Mjolnir/main/changePasswordForm">Change Password</a></li>
                                 <li><a href="<c:url value="/main/logout"/>" onclick="alert('logout Bye.')">Logout</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="<c:url value="/main/about"/>">About</a></li>
