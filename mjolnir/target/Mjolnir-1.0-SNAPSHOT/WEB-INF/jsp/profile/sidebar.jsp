@@ -73,8 +73,8 @@
         </c:if>
         <c:if test="${formtype == 'edit'}">
         <li class="nav-main"><a href="<c:url value="/"/>main/information/view/${id}">Information</a></li>
-        <li class="nav-main"><a href="<c:url value="/"/>main/profile/editFormTH/${id}">Profile(Thai)</a></li>
-        <li class="nav-main"><a href="<c:url value="/"/>main/profile/editFormEN/${id}">Profile(English)</a></li>
+        <li class="nav-main"><a href="<c:url value="/"/>main/profile/viewTH/${id}">Profile(Thai)</a></li>
+        <li class="nav-main"><a href="<c:url value="/"/>main/profile/viewEN/${id}">Profile(English)</a></li>
             <c:if test="${family == null}">
             <li class="nav-main"><a href="<c:url value="/"/>main/familyinfo/addForm/${id}">Family</a></li>
             </c:if>

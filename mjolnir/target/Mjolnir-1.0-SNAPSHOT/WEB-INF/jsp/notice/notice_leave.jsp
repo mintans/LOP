@@ -50,7 +50,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-10">
                             <div class="panel panel-default">
                                 <!--<div class="panel-heading"></div>-->
@@ -138,4 +137,140 @@
 
         </body>
     </c:if>
-</html>
+<c:if test="${userInfo.user.permission == 'MANAGER'}">
+        <body onload="hide('${empId}')">
+            <div class="container-fluid">            
+                <div class="row">
+                    <%@ include file="/WEB-INF/jsp/header.jsp" %>               
+                </div>
+
+                <nav class="breadcrumb">
+                    <a class="breadcrumb-item" href="<c:url value="/main/notice"/>">Notice</a> / 
+                    <span class="breadcrumb-item active">Leave</span>
+                </nav>
+
+                <div class="container" style="width: 100%">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="panel panel-default">
+                                <!--<div class="panel-heading"></div>-->
+                                <div class="panel-body">
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li role="presentation"><a href="<c:url value="/main/notice"/>">Overtime</a></li>
+                                        <li role="presentation" class="active"><a href="leave">Leave</a></li>
+                                        <li role="presentation"><a href="<c:url value="/main/notice/payment"/>">Payment</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-10">
+                            <div class="panel panel-default">
+                                <!--<div class="panel-heading"></div>-->
+                                <div class="panel-body">
+                                    <div class="row">
+                                        
+                                            <table align="right">
+                                                <tr>
+                                                    <td width="230px">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" placeholder="Search By Name" id="leaveinput"onkeyup="searchFunction()">
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-search"></span>
+                                                            </span>
+                                                        </div> 
+                                                    </td>
+                                                    <td width="20px"></td>
+                                                </tr>
+                                            </table>
+                                    </div>
+                                    <br>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">Leave</h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            <c:set var="check3" value="0"></c:set>
+                                            <c:forEach var="leaveItems1" items="${leaveList}">
+                                                <c:if test="${leaveItems1.status == 1}">
+                                                    <c:set var="check3" value="0"></c:set>
+                                                </c:if>
+                                            </c:forEach>
+                                            <c:if test="${check3 ==0}">
+                                                
+                                                <table class="table table-bordered" cellspacing="0" id="leave">
+                                                    <thead>
+                                                        <tr class="bg-primary">
+                                                            <th><div align="center">Name</div></th>
+                                                            <th><div align="center">Date</div></th>
+                                                            <th><div align="center">Start Date</div></th>
+                                                            <th><div align="center">End Date</div></th>
+                                                            <th><div align="center">Total</div></th>
+                                                            <th><div align="center">On Leave</div></th>
+                                                            <th><div align="center">Description</div></th>
+                                                            <th><div align="center">Option</div></th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <c:forEach var="leaveItems" items="${leaveList}">
+                                                        <c:forEach var="profileItems" items="${profileList}">
+                                                            <c:if test="${profileItems.id == leaveItems.empId}">
+                                                                <c:set var="name" value="${profileItems.firstName} ${profileItems.lastName}"></c:set>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                        <c:if test="${leaveItems.status == 1}">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td align="center">${name}</td>
+                                                                    <td align="center">${leaveItems.date2}</td>
+                                                                    <td align="center">${leaveItems.from2}</td>
+                                                                    <td align="center">${leaveItems.to2}</td>
+                                                                    <td align="center">${leaveItems.total}</td>
+                                                                    <td align="center">${leaveItems.type}</td>
+                                                                    <td align="center" style="word-wrap: break-word;"> ${leaveItems.description}</td>
+                                                                    <td align="center">
+                                                                        <a href="<c:url value="/"/>main/managerApproveLeave/${leaveItems.id}" class="btn btn-success">Approve</a>
+                                                                        <a href="<c:url value="/"/>main/RejectLeave/${leaveItems.id}" class="btn btn-danger">Reject</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody> 
+                                                       </c:if>
+                                                    </c:forEach>
+                                                </table>
+                                            </c:if>
+
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </body>
+    </c:if>
+            <c:if test="${userInfo.user.permission == 'EMPLOYEE'}">
+                        <form:hidden path="status" value="2"/>
+                        <form:hidden path="leader" value="true"/>
+                        <form:hidden path="manager" value="true"/>
+                    </c:if>
+                   
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-4">
+                            <c:if test="${action == 'save'}">
+                                <input type="submit" value="Save" class="btn btn-success">
+                                <a href="<c:url value="/"/>main/leave?empId=${empId}&start=${start}" class="btn btn-primary">back to leave page</a>
+                            </c:if>
+                            <c:if test="${action == 'update'}">
+                                <input type="submit" value="Update" class="btn btn-success">
+                                <a href="<c:url value="/"/>main/leave?empId=${empId}&start=${start}"class="btn btn-primary">back to leave page</a>
+                            </c:if>
+                        </div>
+                    </div>
+                    </html>
+
+

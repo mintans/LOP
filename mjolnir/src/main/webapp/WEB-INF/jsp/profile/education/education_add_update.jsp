@@ -113,7 +113,6 @@
                 gpa.name = "educationInfo[" + counts + "].gpa";
                 gpa.required;
                 cell7.appendChild(gpa);
-
             }
             function deleteRow(tableID) {
                 try {
@@ -147,12 +146,14 @@
                 <%@ include file="/WEB-INF/jsp/header.jsp" %>  
             </div>
 
-            <nav class="breadcrumb">
-                <a class="breadcrumb-item" href="<c:url value="/main/profile"/>">Profile</a> / 
-                <c:if test="${action == 'update'}">
-                    <a class="breadcrumb-item" href="<c:url value="/"/>main/profile/viewTH/${id}"/>${id}</a> / 
-                </c:if>
-                <span class="breadcrumb-item active">education-${action}</span>
+                 <nav class="breadcrumb">
+                <c:forEach var="profileItem" items="${profileList}">
+                    <c:if test="${profileid == profileItem.id}">
+                        <a class="breadcrumb-item" href="<c:url value="/main/profile"/>">Profile</a> / 
+                        <a class="breadcrumb-item" href="<c:url value="/"/>main/profile/viewTH/${profileItem.id}"/>${profileItem.id}</a> / 
+                        <span class="breadcrumb-item active">education</span>
+                    </c:if>
+                </c:forEach>
             </nav>
 
             <div class="row">
