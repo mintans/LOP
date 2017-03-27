@@ -54,21 +54,20 @@ public class EducationController {
     @RequestMapping(value = "educationForm/{profileID}", method = RequestMethod.GET)
     public String educationForm(ModelMap model, @PathVariable String profileID) {
         EducationForm educationForm = new EducationForm();
+        model.addAttribute("id", profileID);
+        model.addAttribute("userInfo", userInfo);
+        model.addAttribute("language", profileManager.get(profileID).getLanguage());
+        model.addAttribute("family", profileManager.get(profileID).getFamilyinfo());
+        model.addAttribute("education", profileManager.get(profileID).getEducation());
+        model.addAttribute("special", profileManager.get(profileID).getSpecialAbility());
+        model.addAttribute("work", profileManager.get(profileID).getWorkExperiences());
         List<Profile> profileList = profileManager.getAll();
         for (Profile profileList1 : profileList) {
             if (profileID.equals(profileList1.getId())) {
                 model.put("educationItem", profileList1);
             }
         }
-        model.addAttribute("profileList", profileList);
-        model.addAttribute("profileid", profileID);
-        model.addAttribute("userInfo", userInfo);
-        model.addAttribute("id", profileID);
-         model.addAttribute("language", profileManager.get(profileID).getLanguage());
-        model.addAttribute("family",profileManager.get(profileID).getFamilyinfo());
-        model.addAttribute("education", profileManager.get(profileID).getEducation());
-        model.addAttribute("special", profileManager.get(profileID).getSpecialAbility());
-        model.addAttribute("work", profileManager.get(profileID).getWorkExperiences());
+        model.addAttribute("profileList", profileList);   
         model.put("formtype", "edit");
         model.put("formProfile", "profile");
         model.put("action", "save");
@@ -122,7 +121,7 @@ public class EducationController {
         model.addAttribute("id3", profileManager.get(educationId).getEducation().getProfileId());
         model.put("action", "update");
         model.put("educationForm", educationForm);
-         model.put("formtype", "edit");
+        model.put("formtype", "edit");
         return "profile/education/education_add_update";
     }
 
