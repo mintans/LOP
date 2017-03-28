@@ -54,6 +54,12 @@ public class EducationController {
     @RequestMapping(value = "educationForm/{profileID}", method = RequestMethod.GET)
     public String educationForm(ModelMap model, @PathVariable String profileID) {
         EducationForm educationForm = new EducationForm();
+        List<Profile> profileList = profileManager.getAll();
+        for (Profile profileList1 : profileList) {
+            if (profileID.equals(profileList1.getId())) {
+                model.put("educationItem", profileList1);
+            }
+        }
         model.addAttribute("id", profileID);
         model.addAttribute("userInfo", userInfo);
         model.addAttribute("language", profileManager.get(profileID).getLanguage());
@@ -61,12 +67,6 @@ public class EducationController {
         model.addAttribute("education", profileManager.get(profileID).getEducation());
         model.addAttribute("special", profileManager.get(profileID).getSpecialAbility());
         model.addAttribute("work", profileManager.get(profileID).getWorkExperiences());
-        List<Profile> profileList = profileManager.getAll();
-        for (Profile profileList1 : profileList) {
-            if (profileID.equals(profileList1.getId())) {
-                model.put("educationItem", profileList1);
-            }
-        }
         model.addAttribute("profileList", profileList);   
         model.put("formtype", "edit");
         model.put("formProfile", "profile");
