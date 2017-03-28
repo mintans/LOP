@@ -151,12 +151,12 @@
                     <c:if test="${profileID == profileItem.id}">
                         <a class="breadcrumb-item" href="<c:url value="/main/profile"/>">Profile</a> / 
                         <a class="breadcrumb-item" href="<c:url value="/"/>main/profile/viewTH/${profileItem.id}"/>${profileItem.id}</a> / 
-                        <span class="breadcrumb-item active">education</span>
+                        <span class="breadcrumb-item active">education add</span>
                     </c:if>
                         <c:if test="${educationId == profileItem.id}">
                         <a class="breadcrumb-item" href="<c:url value="/main/profile"/>">Profile</a> / 
                         <a class="breadcrumb-item" href="<c:url value="/"/>main/profile/viewTH/${profileItem.id}"/>${profileItem.id}</a> / 
-                        <span class="breadcrumb-item active">education</span>
+                        <span class="breadcrumb-item active">education edit</span>
                     </c:if>
                 </c:forEach>
                         
