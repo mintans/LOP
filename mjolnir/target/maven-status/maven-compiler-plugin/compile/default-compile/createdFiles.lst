@@ -86,6 +86,7 @@ th\co\entronica\mjolnir\model\reposity\UserRepository.class
 th\co\entronica\mjolnir\model\reposity\AdmonitionRepository.class
 th\co\entronica\mjolnir\model\manage\ProfileManager.class
 th\co\entronica\mjolnir\controller\profile\WorkExperienceController.class
+th\co\entronica\mjolnir\controller\home\Group.class
 th\co\entronica\mjolnir\model\service\LeaderService.class
 th\co\entronica\mjolnir\controller\profile\InformationController.class
 th\co\entronica\mjolnir\controller\home\TeamController.class
