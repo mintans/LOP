@@ -148,12 +148,18 @@
 
                  <nav class="breadcrumb">
                 <c:forEach var="profileItem" items="${profileList}">
-                    <c:if test="${profileid == profileItem.id}">
+                    <c:if test="${profileID == profileItem.id}">
+                        <a class="breadcrumb-item" href="<c:url value="/main/profile"/>">Profile</a> / 
+                        <a class="breadcrumb-item" href="<c:url value="/"/>main/profile/viewTH/${profileItem.id}"/>${profileItem.id}</a> / 
+                        <span class="breadcrumb-item active">education</span>
+                    </c:if>
+                        <c:if test="${educationId == profileItem.id}">
                         <a class="breadcrumb-item" href="<c:url value="/main/profile"/>">Profile</a> / 
                         <a class="breadcrumb-item" href="<c:url value="/"/>main/profile/viewTH/${profileItem.id}"/>${profileItem.id}</a> / 
                         <span class="breadcrumb-item active">education</span>
                     </c:if>
                 </c:forEach>
+                        
             </nav>
 
             <div class="row">
